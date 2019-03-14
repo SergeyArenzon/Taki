@@ -15,11 +15,12 @@ Game::Game(){
     vector <Player> players;
     for(size_t i = 0; i < playersNum; i++)
     {
-        Player p;
+        string name;
         cout<<"player number "<<i+1<<" name?"<<endl;
-        cin>>p.name;
+        cin>>name;
+        Player p(name,cardsNum);
         players.push_back(p);
-        cout<<players.at(0).name<<endl;
+        
     }
     
      
