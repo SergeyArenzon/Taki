@@ -6,6 +6,7 @@
 #endif
 int Card::counter = 0;
 using namespace std;
+
 Card Card::generate_card() {
 #ifdef RANDOM
 	return Card(color(rand() % 4 + 1), sign(rand() % 13 + 1));

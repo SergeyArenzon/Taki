@@ -4,15 +4,14 @@
 using namespace std;
 class Player {
 private:
+
 	
-	//vector of cards
-	//private members
-	vector <Card> cards;
 public:
+	vector <Card> cards;
 	string name;
 	int num_of_cards;
-	//public members
 	bool play(Card&);
+	
 	Player();
 	Player(string name,int cardsNum);
 };
