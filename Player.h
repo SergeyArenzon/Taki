@@ -11,7 +11,6 @@ public:
 	string name;
 	int num_of_cards;
 	bool play(Card&);
-	
 	Player();
 	Player(string name,int cardsNum);
 };
