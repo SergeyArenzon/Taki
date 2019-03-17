@@ -1,22 +1,7 @@
 #include "Game.h"
 #include <iostream>
 using namespace std;
-void changeSide(bool x,int &i,string &state){
-		if(state=="PLUS1"&&x==true){
-			i--;
-            state = "MINUS1";
-		}else if(state=="MINUS1"&&x==true){
-            i++;
-             state = "PLUS1";
-        }
-        else if(state=="PLUS1"&&x==false){
-            i++;
-        }
-        else if(state=="MINUS1"&&x==false){
-            i++;
-        };
 
-	}
 bool turn(int input,vector<Card> &cards,Card &curr){
 if(cards.at(input-1).is_legal(curr)){   
     Card c(cards.at(input-1));
@@ -87,26 +72,55 @@ Game::Game(){
                  i++;
              }
          }else{     
-          while(turn(input,p->cards,current)==false){ //check for illegal card
-              cout<<"Try again!"<<endl;
-                cin>>input;
+        //   while(turn(input,p->cards,current)==false){ //check for illegal card
+        //       cout<<"Try again!"<<endl;
+        //         cin>>input;
+                
+                
+        //      }
+            bool check = true;
+            while(check==true){ //if entered: illegal card->out of range num
+               if(input>p->cards.size()||input<=0)check=false;           
+               else if(turn(input,p->cards,current)==true) check=false;
+               else if (input<p->cards.size()&&input>0){
+                   cin>>input;
+                   Card c = c.generate_card();
+                   p->cards.push_back(c);
 
-             }
+               }
+                    
+                
+            }
              switch (current.get_sign()) 
             { 
                case sign::PLUS:              
                break; 
                  case sign::CD:  
-                 /////////////
-
-                 ///////////
+                 if(state =="PLUS1"){
+                     i--;   
+                     state ="MINUS1";
+                 }else{
+                     i++;
+                     state = "MINUS1";
+                 }
                                  
                 break; 
                  case sign::STOP:
-                   changeSide(false,i,state); 
-                   changeSide(false,i,state); 
+                    if(state =="PLUS1"){
+                     i=i+2;                       
+                 }else{
+                     i=i-2;                     
+                 }
                break; 
-                default:  changeSide(false,i,state);
+                default:  
+                if(state =="PLUS1"){
+                     i++;   
+                     
+                 }else{
+                     i--;
+                     
+                 }
+
                 break;   
           }   
 
