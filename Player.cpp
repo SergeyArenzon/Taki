@@ -18,4 +18,25 @@ Player::Player(string nam,int cardsNum){
 
     } 
 };
+bool Player::play(Card& curr){
+    int input;
+    cin>>input;
+    
+    if(input>this->cards.size()||input<=0){//took card
+        Card c=c.generate_card();
+        this->cards.push_back(c);
+        
+        return false;
+    }
+    else if(cards.at(input-1).is_legal(curr)) {//played->remove card
+        curr=cards.at(input-1);
+        cards.erase(cards.begin()+input-1);
+        return true;
 
+    }else{
+        cout<<"You can't put "<<cards.at(input-1)<<" on "<<curr<<endl;
+        play(curr);//illegal card chosen->wait for input again
+    }
+
+
+}
