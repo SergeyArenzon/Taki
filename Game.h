@@ -8,7 +8,7 @@ private:
 	
 	int playersNum,cardsNum;
 public:
-	void changeSide(bool x,int &i,string state);
+	
 	Game();
 	void start();
 };

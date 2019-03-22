@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <iostream>
 using namespace std;
+#include "vector"
 
 static string state = "PLUS1";
 
@@ -48,18 +49,16 @@ void cardCheck(const Card&   curr, int&  i){
   
 }
 
-
 void printCards(vector<Card> &cards){
 int cardCounter=1;
-for(auto &i : cards){
-            cout<<"("<<cardCounter++<<")"<<i<<" ";
+for(int i=0;i< cards.size();i++){
+            cout<<"("<<cardCounter++<<")"<<cards.at(i)<<" ";
         }
 
 }
 Game::Game(){
     playersNum=0;
     cardsNum=0;  
-    
 
 }
 

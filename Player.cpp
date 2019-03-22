@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Card.h"
+#include "vector"
 Player::Player(){
 
  name="";

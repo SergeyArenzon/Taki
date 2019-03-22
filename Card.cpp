@@ -5,6 +5,7 @@
 //#include <windows.h>
 //#endif
 using namespace std;
+#include "vector"
 Card Card::generate_card() {
 #ifdef RANDOM
 	return Card(static_cast<color>(rand() % 4 + 1), static_cast<sign>(rand() % 13 + 1));
