@@ -1,7 +1,8 @@
+/* Sergey Arenzon 321211286 */
 #include "Game.h"
 #include <iostream>
 using namespace std;
-#include "vector"
+#include <vector>
 
 static string state = "PLUS1";
 
@@ -83,10 +84,10 @@ int i = 0;
  Card current = current.generate_card();
 while(won==false){
     Player *p=&players.at(i%players.size()); 
-    cout<<"\ncurrent: "<<current<<endl;
+    cout<<"current: "<<current<<endl;
     cout<<p->name<<", your turn - \n"<<"Your cards: ";
     printCards(p->cards);
-    cout<<endl;   
+    
     if(p->play(current)) cardCheck(current,i);   //check if p took card or played
     else {  //if took->next turn
         if(state =="PLUS1"){
@@ -99,10 +100,10 @@ while(won==false){
     }
     if(p->cards.size()==0){//check if player won
         won=true;
-        cout<<p->name<<" wins!"<<endl;
+        cout<<"\n"<<p->name<<" wins!"<<endl;
     }
-     cout<<endl;
      
+     if(won==false )cout<<endl;
 }
     
     };

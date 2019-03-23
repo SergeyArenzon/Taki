@@ -1,5 +1,5 @@
 output: main.o Game.o Player.o Card.o
-	g++ -std=c++0x main.o Game.o Player.o Card.o -o output
+	g++ -std=c++0x main.o Game.o Player.o Card.o -o a.out
 
 main.o: main.cpp
 	g++ -std=c++0x -c main.cpp 
@@ -14,4 +14,4 @@ Card.o: Card.cpp Card.h
 	g++ -std=c++0x -c Card.cpp
 
 clean:
-	rm *.o output
+	rm *.o a.out

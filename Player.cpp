@@ -1,6 +1,7 @@
+/* Sergey Arenzon 321211286 */
 #include "Player.h"
 #include "Card.h"
-#include "vector"
+#include <vector>
 Player::Player(){
 
  name="";
@@ -35,7 +36,7 @@ bool Player::play(Card& curr){
         return true;
 
     }else{
-        cout<<"You can't put "<<cards.at(input-1)<<" on "<<curr<<endl;
+        cout<<"\nYou can't put "<<cards.at(input-1)<<" on "<<curr;
         play(curr);//illegal card chosen->wait for input again
     }
 
